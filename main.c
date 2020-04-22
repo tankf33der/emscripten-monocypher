@@ -38,15 +38,6 @@ void p_random(u8 *stream, size_t size)
     }
 }
 
-void print_vector(const u8 *buf, size_t size)
-{
-    FOR (i, 0, size) {
-        printf("%x%x", buf[i] >> 4, buf[i] & 0x0f);
-    }
-    printf(":\n");
-}
-
-
 int main(void) {
     int status = 0;
     RANDOM_INPUT(message, 32);
