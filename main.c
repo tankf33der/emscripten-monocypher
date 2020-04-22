@@ -4,7 +4,7 @@
 #include <inttypes.h>
 #include <stddef.h>
 
-#include "monocypher.h"
+#include "monocypher-ed25519.h"
 
 typedef int8_t   i8;
 typedef uint8_t  u8;
@@ -51,9 +51,9 @@ int main(void) {
     int status = 0;
     RANDOM_INPUT(message, 32);
     RANDOM_INPUT(sk, 32);
-    u8 pk       [32]; crypto_sign_public_key(pk, sk);
-    u8 signature[64]; crypto_sign(signature, sk, pk, message, 32);
-    status |= crypto_check(signature, pk, message, 32);
+    u8 pk       [32]; crypto_ed25519_public_key(pk, sk);
+    u8 signature[64]; crypto_ed25519_sign(signature, sk, pk, message, 32);
+    status |= crypto_ed25519_check(signature, pk, message, 32);
 
     printf("%s: Demo\n", status != 0 ? "FAILED" : "OK");
     return status;

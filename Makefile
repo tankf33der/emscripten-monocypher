@@ -4,4 +4,4 @@ c:
 e:
 	emcc -O3 *.c -o a.js && node a.js
 clean:
-	rm -rf *.o *.out *.js
+	rm -rf *.o *.out *.js *.wasm
