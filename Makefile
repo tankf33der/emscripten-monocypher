@@ -1,5 +1,5 @@
 all: c
 c:
-	gcc -O3 *.c && ./a.out
+	gcc -Wall -Wextra -O3 *.c && ./a.out
 clean:
 	rm -rf *.o *.out *.js
